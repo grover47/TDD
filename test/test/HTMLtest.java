@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
+import HTMLProject.FileMaker;
 import HTMLProject.SaveURL;
 import HTMLProject.SearchURL;
 import HTMLProject.Writer;
@@ -17,7 +18,7 @@ import HTMLProject.Writer;
  * @author Kim
  *
  */
-public class HTMLtest {
+public abstract class HTMLtest {
 	@Test
 	public void testIfInputURLOutPutWebpage() { 
 		assertNotEquals(null, SaveURL.getHTMLURL("http://archive.freep.com/article/20131103/COL06/311020016/Tom-Walsh-Dan-Gilbert-JDetroit-Venture-partners"));
@@ -54,7 +55,17 @@ public class HTMLtest {
 	@Test
 	public void testIfFileExists() throws IOException
 	{
-		assertFalse(Writer.makeFile("testing.txt"));
+		assertFalse(FileMaker.makeFile("testing.txt"));
+	}
+	
+	@Test
+	public void testIfGetsHTMLString() throws IOException
+	{
+		SearchURL.searchURL("Bigot waffles Cower");
+		String expectedOutput = "<font style='BACKGROUND-COLOR: yellow'>Bigot</font> waffles ";
+		expectedOutput += "<font style='BACKGROUND-COLOR: yellow'>Cower</font>";
+		String s = SearchURL.getHTML();
+		assertEquals(s, expectedOutput);
 	}
 	
 	

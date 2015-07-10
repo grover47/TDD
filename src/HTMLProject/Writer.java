@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Writer extends FileMaker {
+public abstract class Writer extends FileMaker {
 	private static PrintWriter p;
 	
 	public static void startPrinter() {

@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
-public class Reader extends FileMaker {
+public abstract class Reader extends FileMaker {
 	private static BufferedReader b;
 
 	public static BufferedReader getReader()

@@ -1,10 +1,11 @@
 package HTMLProject;
 
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 
 import org.jsoup.Jsoup;
 
-public class SaveURL {
+public abstract class SaveURL {
 	private static String url;
 	/**
 	 * getHTMLURL takes a string u, which is a URL, parses the html and stores
@@ -15,10 +16,17 @@ public class SaveURL {
 		String html = null;
 		try {
 			html = Jsoup.connect(u).get().html();
-		} catch (IOException e) {
+		} 
+		catch(SocketTimeoutException e)
+		{
+			System.out.println("Oops there was a problem.  Exiting the program");	
+			System.exit(0);
+		}
+		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return html;
 	}
 

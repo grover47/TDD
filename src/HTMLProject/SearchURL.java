@@ -3,7 +3,7 @@ package HTMLProject;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class SearchURL {
+public abstract class SearchURL {
 	private static ArrayList<String> wordList;
 	static {
 		wordList = new ArrayList<String>();
