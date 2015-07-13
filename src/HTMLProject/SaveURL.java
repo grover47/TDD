@@ -1,6 +1,7 @@
 package HTMLProject;
 
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 
 import org.jsoup.Jsoup;
 
@@ -15,7 +16,12 @@ public class SaveURL {
 		String html = null;
 		try {
 			html = Jsoup.connect(u).get().html();
-		} catch (IOException e) {
+		} 
+		catch(SocketTimeoutException e)
+		{
+			System.out.println("Oops, there was an error");
+		}
+		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

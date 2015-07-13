@@ -21,7 +21,7 @@ public class Reader extends FileMaker {
 				b = new BufferedReader(fr);
 				break;
 			} catch (FileNotFoundException e) {
-				makeFile("index.html");
+				makeFile(url);
 			}
 	}
 

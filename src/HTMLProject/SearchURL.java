@@ -3,7 +3,7 @@ package HTMLProject;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class SearchURL {
+public abstract class SearchURL {
 	private static ArrayList<String> wordList;
 	static {
 		wordList = new ArrayList<String>();
@@ -21,8 +21,6 @@ public class SearchURL {
 				if(!s.trim().equals(""))
 				wordList.add(s);
 			}
-			System.out.println(wordList);
-			System.out.println();
 			Reader.closeReader();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

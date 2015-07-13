@@ -6,6 +6,7 @@ package test;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 
 import org.junit.Test;
 
@@ -57,11 +58,24 @@ public class HTMLtest {
 		assertFalse(Writer.makeFile("testing.txt"));
 	}
 	
+	@Test
+	public void testIfGetsHTMLString() throws IOException
+	{
+		SearchURL.searchURL("Bigot waffles Cower");
+		String expectedOutput = "<font style='BACKGROUND-COLOR: yellow'>Bigot</font> waffles ";
+		expectedOutput += "<font style='BACKGROUND-COLOR: yellow'>Cower</font>";
+		String s = SearchURL.getHTML();
+		System.out.println("");
+		assertEquals(s, expectedOutput);
+	}
 	
+	@Test (expected = IllegalArgumentException.class)
+	public void testIfIOExceptionWhenInvalidURL() throws IOException
+	{
+		SaveURL.readHTMLFile("awleifhaelzwfh");
+	}
 	
-	
-	
-	
+
 }
 
 

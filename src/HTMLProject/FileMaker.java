@@ -17,8 +17,5 @@ public class FileMaker {
 		return false;
 	}
 
-	public FileMaker() {
-		super();
-	}
 
 }
